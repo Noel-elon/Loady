@@ -126,20 +126,12 @@ class LoadingButton @JvmOverloads constructor(
 
     private fun startAnimation() {
         valueAnimator = ValueAnimator.ofFloat(0F, measuredWidth.toFloat()).apply {
-            duration = 1500
+            duration = 2000
             addUpdateListener {
                 arcProgress = it.animatedValue as Float
                 currentText = "Downloading.."
                 invalidate()
             }
-
-            addListener(object : AnimatorListenerAdapter() {
-
-                override fun onAnimationEnd(animation: Animator?) {
-                    super.onAnimationEnd(animation)
-                }
-            })
-
             start()
         }
     }
